@@ -6,7 +6,7 @@ import argparse
 import sys
 from collections import namedtuple
 
-listnames = {"1"  : "BHO, Toolbars, URLSearchHooks, Explorer Bars",
+sl_list_descr = {"1"  : "BHO, Toolbars, URLSearchHooks, Explorer Bars",
              "2"  : "Startup / Autorun Entries",
              "3"  : "Internet Explorer Buttons",
              "9"  : "LSPs",
@@ -21,7 +21,7 @@ listnames = {"1"  : "BHO, Toolbars, URLSearchHooks, Explorer Bars",
              "13" : "Firefox Extensions",
              "14" : "Active Setup"}
 
-list_map = {"CLSID"   :  "1", "O2" : "1", "O3" : "1", "R3" : "1",
+sl_list2param = {"CLSID"   :  "1", "O2" : "1", "O3" : "1", "R3" : "1",
             "STARTUP" :  "2", "O4" : "2",
             "O9"      :  "3",
             "O10"     :  "9", "LSP" : "9",
@@ -76,19 +76,19 @@ def print_results(results):
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="SystemLookup.com Command Line Tool", prog="systemlookup.py")
-    parser.add_argument("-l", "--list", help="The list that is used to lookup the entry. Possible values: " + ", ".join(list_map.keys()), dest="sl_list")
+    parser.add_argument("-l", "--list", help="The list that is used to lookup the entry. Possible values: " + ", ".join(sl_list2param.keys()), dest="sl_list")
     parser.add_argument("-t", "--type", help="The type of the search item. Possible values: " + ", ".join(type_list), dest="searchtype", required=True)
     parser.add_argument("searchitem")
     args = parser.parse_args()
-    if args.sl_list and not args.sl_list.upper() in list_map:
+    if args.sl_list and not args.sl_list.upper() in sl_list2param:
         parser.print_usage()
-        raise ValueError("error: invalid list, possible values: " + ", ".join(list_map.keys()))
+        raise ValueError("error: invalid list, possible values: " + ", ".join(sl_list2param.keys()))
     if not args.searchtype in type_list:
         parser.print_usage()
         raise ValueError("error: invalid search type, possible values: " + ", ".join(type_list))
     return args
 
-def request(listnr, chosentype, search_term):
+def syslookup(listnr, chosentype, search_term):
     base_url = "http://www.systemlookup.com/"
     sl_list = "lists.php?list=" + listnr
     sl_type = "type=" + chosentype
@@ -109,20 +109,22 @@ def main(argv=None):
     try:
         args = parse_arguments()
         lists = []
+        # list specific search
         if args.sl_list:
-            lists.append(list_map[args.sl_list.upper()])
+            lists.append(sl_list2param[args.sl_list.upper()])
+        # global search, add all lists
         else:
-            for listnr in listnames.keys():
+            for listnr in sl_list_descr.keys():
                 lists.append(listnr)
 
-        no_results = True
+        # get and print results for each list
         for listnr in lists:
-            data = request(listnr, args.searchtype, args.searchitem)
+            # request data from systemlookup.com
+            data = syslookup(listnr, args.searchtype, args.searchitem)
             soup = BeautifulSoup(data)
-            listname = listnames[listnr]
+            listname = sl_list_descr[listnr]
             results = extract_results(soup)
             if results:
-                no_results = False
                 print_title("List: " + listname, big=True)
                 print_results(results)
             else:
