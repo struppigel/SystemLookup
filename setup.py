@@ -7,7 +7,7 @@ setup(
     name='systemlookup',
     version='0.0.1',
     author='Katja Hahn',
-    author_email='struppigel@gmail.com',
+    author_email='struppigel@googlemail.com',
     packages=['systemlookup'],
     url='http://github.com/katjahahn/SystemLookup',
     license='Apache License 2.0',
