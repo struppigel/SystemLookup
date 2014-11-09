@@ -10,6 +10,7 @@ setup(
     author_email='struppigel@googlemail.com',
     packages=['systemlookup'],
     url='http://github.com/katjahahn/SystemLookup',
+    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.2',
     license='Apache License 2.0',
     platforms = ['any'],
     classifiers = ['Development Status :: 4 - Beta'
@@ -25,7 +26,8 @@ setup(
             'systemlookup = systemlookup.systemlookup:main'
         ]
     },
-    long_description=open('README.md').read(),
+    keywords = ['systemlookup', 'malware research', 'malware', 'file info'],
+    #long_description=open('README.md').read(),
     install_requires=[
         "beautifulsoup4 >= 4.2.0",
         "argparse == 1.2.1",
