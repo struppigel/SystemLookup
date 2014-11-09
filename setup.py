@@ -5,12 +5,12 @@ except ImportError:
 
 setup(
     name='systemlookup',
-    version='0.0.1',
+    version='0.0.2',
     author='Katja Hahn',
     author_email='struppigel@googlemail.com',
     packages=['systemlookup'],
     url='http://github.com/katjahahn/SystemLookup',
-    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.1',
+    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.2',
     license='Apache License 2.0',
     platforms = ['any'],
     classifiers = ['Development Status :: 4 - Beta',
