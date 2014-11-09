@@ -24,6 +24,18 @@ optional arguments:
                         clsid, filename
 ```
 
+Example command for global search:
+
+```
+python systemlookup.py -t name "lsasss"
+```
+
+Example command for search in startup list:
+
+```
+python systemlookup.py --list O2 --type filename "explore.exe"
+```
+
 ### Installation:
 
 ```
