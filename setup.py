@@ -5,20 +5,22 @@ except ImportError:
 
 setup(
     name='systemlookup',
-    version='0.0.2',
+    version='0.0.1',
     author='Katja Hahn',
     author_email='struppigel@googlemail.com',
     packages=['systemlookup'],
     url='http://github.com/katjahahn/SystemLookup',
-    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.2',
+    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.1',
     license='Apache License 2.0',
     platforms = ['any'],
-    classifiers = ['Development Status :: 4 - Beta'
+    classifiers = ['Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: System Administrators',
         'Intended Audience :: Science/Research',
         'Natural Language :: English',
         'Operating System :: OS Independent',
+        'Topic :: Internet :: Log Analysis',
+        'Topic :: System',
         'Programming Language :: Python'],
     description='Command line tool to get info about filenames, clsid etc, from SystemLookup.com',
     entry_points={
@@ -27,7 +29,7 @@ setup(
         ]
     },
     keywords = ['systemlookup', 'malware research', 'malware', 'file info'],
-    #long_description=open('README.md').read(),
+    long_description=open('README.md').read(),
     install_requires=[
         "beautifulsoup4 >= 4.2.0",
         "argparse == 1.2.1",
