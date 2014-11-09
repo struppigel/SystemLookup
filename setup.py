@@ -14,7 +14,7 @@ setup(
     description='Command line tool to get info about filenames, clsid etc, from SystemLookup.com',
     long_description=open('README.md').read(),
     install_requires=[
-        "BeautifulSoup >= 4.2.0",
-        "argparse==3.2",
+        "beautifulsoup4 >= 4.2.0",
+        "argparse == 1.2.1",
     ]
 )
