@@ -27,7 +27,7 @@ optional arguments:
 Example command for global search:
 
 ```
-python systemlookup.py -t name "lsasss"
+python systemlookup.py -t name lsasss
 ```
 
 Example command for search in startup list:
