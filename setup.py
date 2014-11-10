@@ -5,12 +5,12 @@ except ImportError:
 
 setup(
     name='systemlookup',
-    version='0.0.2',
+    version='0.0.3',
     author='Katja Hahn',
     author_email='struppigel@googlemail.com',
     packages=['systemlookup'],
     url='http://github.com/katjahahn/SystemLookup',
-    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.2',
+    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.3',
     license='Apache License 2.0',
     platforms = ['any'],
     classifiers = ['Development Status :: 4 - Beta',
@@ -31,7 +31,8 @@ setup(
     keywords = ['systemlookup', 'malware research', 'malware', 'file info'],
     long_description=open('README.md').read(),
     install_requires=[
-        "beautifulsoup4 >= 4.2.0",
+        "beautifulsoup4 == 4.3.2",
+        "requests == 2.4.3",
         "argparse == 1.2.1",
     ]
 )
