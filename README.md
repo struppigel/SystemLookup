@@ -39,5 +39,5 @@ systemlookup -t name lsasss
 Example command for search in startup list:
 
 ```
-systemlookup --list O2 --type filename "explore.exe"
+systemlookup --list O4 --type filename "explore.exe"
 ```
