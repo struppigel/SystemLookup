@@ -1,3 +1,10 @@
+import os
+from distutils.core import setup
+
+long_description = 'Command line tool to get info about filenames, clsid etc, from SystemLookup.com'
+if os.path.exists('README.txt'):
+        long_description = open('README.txt').read()
+
 try:
     from setuptools import setup
 except ImportError:
@@ -5,12 +12,12 @@ except ImportError:
 
 setup(
     name='systemlookup',
-    version='0.0.3',
-    author='Katja Hahn',
+    version='0.0.4',
+    author='Karsten Hahn',
     author_email='struppigel@googlemail.com',
     packages=['systemlookup'],
     url='http://github.com/katjahahn/SystemLookup',
-    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.3',
+    download_url = 'https://github.com/katjahahn/systemlookup/tarball/0.0.4',
     license='Apache License 2.0',
     platforms = ['any'],
     classifiers = ['Development Status :: 4 - Beta',
@@ -29,10 +36,10 @@ setup(
         ]
     },
     keywords = ['systemlookup', 'malware research', 'malware', 'file info'],
-    long_description=open('README.md').read(),
     install_requires=[
         "beautifulsoup4 == 4.3.2",
         "requests == 2.4.3",
         "argparse == 1.2.1",
+	"pyandoc == 0.2.0"
     ]
 )
