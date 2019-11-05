@@ -38,7 +38,7 @@ setup(
     keywords = ['systemlookup', 'malware research', 'malware', 'file info'],
     install_requires=[
         "beautifulsoup4 == 4.3.2",
-        "requests == 2.4.3",
+        "requests == 2.20.0",
         "argparse == 1.2.1",
 	"pyandoc == 0.2.0"
     ]
